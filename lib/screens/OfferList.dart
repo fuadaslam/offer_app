@@ -14,6 +14,7 @@ class _OfferListState extends State<OfferList> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListView.builder(
+        shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 6,
         itemBuilder: (context, i) {

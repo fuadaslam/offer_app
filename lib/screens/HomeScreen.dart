@@ -15,6 +15,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -31,15 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               AppBar(),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  reverse: false,
-                  child: ScrollContent(),
-                ),
-              ),
+              ScrollContent(),
             ],
           ),
         ),
@@ -144,50 +138,52 @@ class ScrollContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Popular Hotels",
-                    style: kHotelTextStyle.apply(color: Colors.white),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Popular Hotels",
+                      style: kHotelTextStyle.apply(color: Colors.white),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 6.0,
-          ),
+            SizedBox(
+              height: 6.0,
+            ),
 
 //              hotel list
-          Container(height: 170, child: HotelList()),
+            Container(height: 170, child: HotelList()),
 
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Hot Deals",
-                    style: kHotelTextStyle.apply(color: Colors.white),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Hot Deals",
+                      style: kHotelTextStyle.apply(color: Colors.white),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
 
 //              offerlist
 
-          Expanded(child: OfferList()),
-        ],
+            OfferList(),
+          ],
+        ),
       ),
     );
   }
