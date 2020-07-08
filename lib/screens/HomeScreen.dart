@@ -51,45 +51,40 @@ class AppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "APP NAME",
-                        style: kTitleStyle.apply(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.5),
-                    child: PopupMenuButton(
-                      icon: Icon(Icons.more_vert, color: Colors.white),
-                      itemBuilder: (context) => [
-                        PopupMenuItem(
-                          child: Text("FeedBack"),
-                        ),
-                        PopupMenuItem(
-                          child: Text("Join with US"),
-                        ),
-                        PopupMenuItem(
-                          child: Text("about Us"),
-                        ),
-                      ],
-                    ),
+                  Text(
+                    "APP NAME",
+                    style: kTitleStyle.apply(color: Colors.white),
                   ),
                 ],
               ),
-            ),
-          ],
+              Container(
+                margin: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.5),
+                child: PopupMenuButton(
+                  icon: Icon(Icons.more_vert, color: Colors.white),
+                  itemBuilder: (context) => [
+                    PopupMenuItem(
+                      child: Text("FeedBack"),
+                    ),
+                    PopupMenuItem(
+                      child: Text("Join with US"),
+                    ),
+                    PopupMenuItem(
+                      child: Text("about Us"),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
         Column(
           mainAxisSize: MainAxisSize.max,
